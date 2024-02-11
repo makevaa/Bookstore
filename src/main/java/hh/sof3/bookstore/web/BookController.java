@@ -44,7 +44,7 @@ public class BookController {
         return "addbook";
     }
 
-    // Save new book
+    // Save new book (or update if Book has id)
     @RequestMapping(value="/save", method=RequestMethod.POST)
     public String save(Book book) {
         bookRepository.save(book);
@@ -59,11 +59,5 @@ public class BookController {
         return "editbook";
     }
 
-    // Update book (with new form data)
-    @RequestMapping(value="/update", method=RequestMethod.POST)
-    public String update(Book book) {
-        bookRepository.save(book);
-        return "redirect:booklist";
-    }
 
 }
