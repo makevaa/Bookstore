@@ -22,12 +22,12 @@ public class Book {
     @Column (name = "author")
     private String author;
 
-    @Column (name = "pulicationYear")
+    @Column (name = "publicationYear")
     private int publicationYear;
 
     @Column (name = "isbn")
     private String isbn;
-    
+
     @Column (name = "price")
     private double price;
 
