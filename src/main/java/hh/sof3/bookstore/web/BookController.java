@@ -1,7 +1,7 @@
 package hh.sof3.bookstore.web;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+//import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 //import org.springframework.web.bind.annotation.ModelAttribute;
@@ -13,6 +13,5 @@ public class BookController {
     public String showIndex() {
         return "index";
     }
-
 
 }
