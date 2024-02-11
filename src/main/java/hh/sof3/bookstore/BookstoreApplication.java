@@ -20,11 +20,14 @@ public class BookstoreApplication {
 		return (args) -> {
 
 			Book book1 = new Book("Kvanttivaras", "Hannu Rajaniemi", 2011, "9789512083954", 19.90);
-
 			Book book2 = new Book("Solaris", "Stanislaw Lem", 1993, "951-31-1450-3", 29.90);
 
 			bookRepository.save(book1);
 			bookRepository.save(book2);
+
+			for (Book book : bookRepository.findAll() ) {
+				System.out.println(book.toString());
+			}
 		};
 	}
 

@@ -1,5 +1,7 @@
 package hh.sof3.bookstore.domain;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,34 +16,27 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column (name = "id")
-    private long id;
+    private Long id;
 
-    @Column (name = "title")
     private String title;
-
-    @Column (name = "author")
     private String author;
+    private String isbn;
+    private double price;
 
     @Column (name = "publicationYear")
-    private int publicationYear;
-
-    @Column (name = "isbn")
-    private String isbn;
-
-    @Column (name = "price")
-    private double price;
+    private Integer publicationYear;
 
 
     public Book() {
         super();
         this.title = null;
         this.author = null;
-        this.publicationYear = -1;
+        this.publicationYear = null;
         this.isbn = null;
-        this.price = -1;
+        this.price = 0;
     }
 
-    public Book(String title, String author, int publicationYear, String isbn, double price) {
+    public Book(String title, String author, Integer publicationYear, String isbn, double price) {
         super();
         this.title = title;
         this.author = author;
@@ -50,6 +45,14 @@ public class Book {
         this.price = price;
     }
 
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
@@ -67,11 +70,11 @@ public class Book {
         this.author = author;
     }
 
-    public int getPublicationYear() {
+    public Integer getPublicationYear() {
         return publicationYear;
     }
 
-    public void setPublicationYear(int publicationYear) {
+    public void setPublicationYear(Integer publicationYear) {
         this.publicationYear = publicationYear;
     }
 
@@ -97,8 +100,8 @@ public class Book {
                 + ", isbn=" + isbn + ", price=" + price + "]";
     }
 
-    
-    
+
+
 
 
 }

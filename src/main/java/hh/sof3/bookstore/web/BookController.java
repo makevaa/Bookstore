@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import hh.sof3.bookstore.domain.Book;
 import hh.sof3.bookstore.domain.BookRepository;
@@ -16,6 +17,7 @@ public class BookController {
     @Autowired
 	private BookRepository bookRepository;
     
+    // Show index page
     @RequestMapping(value="/index", method=RequestMethod.GET)
     public String showIndex() {
         return "index";
@@ -26,6 +28,27 @@ public class BookController {
     public String showBookList(Model model) {
         model.addAttribute( "books", bookRepository.findAll() ); 
         return "booklist";
+    }
+
+    // Delete 1 book
+    @RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
+    public String deleteBook(@PathVariable("id") Long bookId, Model model) {
+        bookRepository.deleteById(bookId);
+        return "redirect:../booklist";
+    }
+
+    // Show "Add book" page
+    @RequestMapping(value="/add", method=RequestMethod.GET)
+    public String showAddBook(Model model) {
+        model.addAttribute("book", new Book());
+        return "addbook";
+    }
+
+    // Save new book
+    @RequestMapping(value="/save", method=RequestMethod.POST)
+    public String save(Book book) {
+        bookRepository.save(book);
+        return "redirect:booklist";
     }
 
 }
