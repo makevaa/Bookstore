@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
-    <title>Document</title>
+    <title>Add category</title>
 </head>
 <body>
-    <h1>Bookstore index</h1>
+    <h1>Add category</h1>
 
-    <a href="/booklist">/booklist</a>
-    <br>
-    <a href="/categorylist">/categorylist</a>
+    <form action="#" th:action="@{/savecategory}" method="post" th:object="${category}">
+        <p> Name: <input type="text" th:field="${category.name}" /> </p>
+
+        <input type="submit" value="Save new category"  />
+    </form>
     
 </body>
 </html>
