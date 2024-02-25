@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
     <title>Add book</title>
 </head>
 <body>
@@ -15,7 +16,7 @@
         <p> Publication year: <input type="text" th:field="${book.publicationYear}" /> </p>
         <p> Price: <input type="text" th:field="${book.price}" /> </p>
 
-        <input type="submit" value="Save new book" />
+        <input type="submit" value="Save new book"  />
     </form>
     
 </body>
