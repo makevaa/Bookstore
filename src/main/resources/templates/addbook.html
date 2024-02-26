@@ -16,6 +16,17 @@
         <p> Publication year: <input type="text" th:field="${book.publicationYear}" /> </p>
         <p> Price: <input type="text" th:field="${book.price}" /> </p>
 
+        <label for="category-list">Book category:</label>
+
+        <select id="category-list" th:field="*{category}">
+            <option th:each="category: ${categories}" 
+                    th:value="${category.categoryid}" 
+                    th:text="${category.name}">
+            </option>
+        </select>
+
+
+        <br><br>
         <input type="submit" value="Save new book"  />
     </form>
     

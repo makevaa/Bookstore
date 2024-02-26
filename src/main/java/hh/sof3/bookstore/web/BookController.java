@@ -10,12 +10,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import hh.sof3.bookstore.domain.Book;
 import hh.sof3.bookstore.domain.BookRepository;
+import hh.sof3.bookstore.domain.Category;
+import hh.sof3.bookstore.domain.CategoryRepository;
 
 @Controller
 public class BookController {
 
     @Autowired
 	private BookRepository bookRepository;
+
+    @Autowired
+	private CategoryRepository categoryRepository;
     
     // Show index page
     @RequestMapping(value="/index", method=RequestMethod.GET)
@@ -41,6 +46,7 @@ public class BookController {
     @RequestMapping(value="/add", method=RequestMethod.GET)
     public String showAddBook(Model model) {
         model.addAttribute("book", new Book());
+        model.addAttribute("categories", categoryRepository.findAll());
         return "addbook";
     }
 

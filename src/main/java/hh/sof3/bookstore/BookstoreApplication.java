@@ -37,7 +37,6 @@ public class BookstoreApplication {
 			bookRepository.save(book2);
 			bookRepository.save(book3);
 
-	
 
 			for (Book book : bookRepository.findAll() ) {
 				System.out.println(book.toString());
