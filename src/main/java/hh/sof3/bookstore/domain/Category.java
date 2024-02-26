@@ -1,10 +1,14 @@
 package hh.sof3.bookstore.domain;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -13,10 +17,13 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column (name = "id")
+    @Column (name = "categoryid")
     private Long categoryid;
 
     private String name;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
+    private List<Book> books;
 
     public Category() {
        this.name = null;
@@ -46,6 +53,14 @@ public class Category {
     @Override
     public String toString() {
         return "Category [categoryid=" + categoryid + ", name=" + name + "]";
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
     
     
