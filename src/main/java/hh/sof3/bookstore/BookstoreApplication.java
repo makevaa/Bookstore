@@ -1,5 +1,7 @@
 package hh.sof3.bookstore;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,6 +14,8 @@ import hh.sof3.bookstore.domain.CategoryRepository;
 
 @SpringBootApplication
 public class BookstoreApplication {
+
+	private static final Logger log = LoggerFactory.getLogger(BookstoreApplication.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(BookstoreApplication.class, args);
@@ -39,11 +43,11 @@ public class BookstoreApplication {
 
 
 			for (Book book : bookRepository.findAll() ) {
-				System.out.println(book.toString());
+				log.info(book.toString());
 			}
 
 			for (Category category : categoryRepository.findAll() ) {
-				System.out.println(category.toString());
+				log.info(category.toString());
 			}
 		};
 	}

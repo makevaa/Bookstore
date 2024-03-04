@@ -2,6 +2,8 @@ package hh.sof3.bookstore.domain;
 
 import java.math.BigDecimal;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,6 +31,7 @@ public class Book {
     private Integer publicationYear;
 
     @ManyToOne
+    @JsonIgnoreProperties ("books") 
     @JoinColumn(name = "categoryid")
     private Category category;
 

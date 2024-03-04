@@ -22,6 +22,11 @@ public class BookController {
     @Autowired
 	private CategoryRepository categoryRepository;
     
+
+
+
+
+    
     // Show index page
     @RequestMapping(value="/index", method=RequestMethod.GET)
     public String showIndex() {
