@@ -44,7 +44,6 @@ public class BookController {
 
     // Show all books
     @RequestMapping(value="/booklist", method=RequestMethod.GET)
-    @PreAuthorize("hasRole('USER')")
     public String showBookList(Model model) {
         model.addAttribute( "books", bookRepository.findAll() ); 
         return "booklist";
@@ -52,7 +51,7 @@ public class BookController {
 
     // Delete 1 book
     @RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String deleteBook(@PathVariable("id") Long bookId, Model model) {
         bookRepository.deleteById(bookId);
         return "redirect:../booklist";
