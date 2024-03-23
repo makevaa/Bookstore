@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <link type="text/css" rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}" />
     <title>Edit book</title>
 </head>
 <body>
@@ -15,6 +16,16 @@
         <p> ISBN: <input type="text" th:field="${book.isbn}" /> </p>
         <p> Publication year: <input type="text" th:field="${book.publicationYear}" /> </p>
         <p> Price: <input type="text" th:field="${book.price}" /> </p>
+
+        <p>
+            <label for="category-list">Book category:</label>
+            <select id="category-list" th:field="*{category}">
+                <option th:each="category: ${categories}" 
+                        th:value="${category.categoryid}" 
+                        th:text="${category.name}">
+                </option>
+            </select>
+        </p>
         <input type="hidden" th:field="${book.id}" />
 
         <input type="submit" value="Save changes" />
